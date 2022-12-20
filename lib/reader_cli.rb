@@ -1,6 +1,5 @@
 # Class to handle the command line arguments and pass them to the Reader class
 # We can add more validations here if needed but I ommitted them do to time constraints
-require 'pry'
 require_relative 'json_file_reader'
 
 class ReaderCli
@@ -11,6 +10,7 @@ class ReaderCli
       File.dirname(File.absolute_path(__FILE__)),
       ARGV[1]
     )
-    JsonFileReader.new(path)
+
+    JsonFileReader.new(path).parse_file
   end
 end

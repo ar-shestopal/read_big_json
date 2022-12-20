@@ -15,6 +15,7 @@ class JsonFileWriter
   end
 
   def write_to_file(objects)
+    @count += 1
     filename = "#{FILE_DIR}/batch_#{@count}.json"
     @queue << { obj: objects.to_json, filename: filename }
 

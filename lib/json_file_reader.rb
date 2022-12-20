@@ -34,7 +34,7 @@ class JsonFileReader
 
       # if we finished parsing an object, add it to the array and set a new object
       if @last_event == :end_array && @current_object["hashtags"] && @current_object["mentions"]
-        @postprocess_current_object
+        postprocess_current_object
         @objects << @current_object
         @current_object = {}
       end
@@ -54,7 +54,7 @@ class JsonFileReader
   end
 
   def postprocess_current_object
-    @current_object["bio"] = @current_object["bio"].gsub(/[^a-zA-Z0-9]/, '') if @current_object["bio"]
+    @current_object["bio"] = @current_object["bio"].gsub(/[^a-zA-Z0-9\s]/, '') if @current_object["bio"]
   end
 
   def parse_key(key)
