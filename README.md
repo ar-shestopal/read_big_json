@@ -28,4 +28,7 @@ chmod +x json_file_parser
 run
 ```
 ./json_file_parser -- path_to_your_file
+```
+
+Resulting files are generated to `/out` folder
 
